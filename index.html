@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>JS Learning</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/base.css">
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div>
+		<p id="btn_bgBlue">背景を青くします</p>
+		<script>
+			$(function(){
+				$("#btn_bgBlue").click(function(){
+					$(this).css("background-color","blue")
+							.css("color","#fff");
+				});
+			});
+		</script>
+	</div>
+	<div>
+		<p id="btn_bgToggle">フラグを利用したスイッチ</p>
+		<script>
+			$(function(){
+				$("#btn_bgToggle").on("click",function(){
+					$(this).css("background", "#f00");
+				});
+			});
+		</script>
+	</div>
+	<div>
+		<p id="btn_bgToggle">クラス属性をフラグの代わりに利用する</p>
+		<script>
+			$(function(){
+				$("#btn_bgToggle").on("click",function(){
+					$(this).css("background", "#f00");
+				});
+			});
+		</script>
+	</div>
+	<div>
+		<p id="btn_hide">クリックすると消えます</p>
+		<script>
+			$(function(){
+				$("#btn_hide").on("click",function(){
+					$(this).hide();
+				});
+			});
+		</script>
+	</div>
+	<div>
+		<p id="btn_fadeOut">2秒かけてフェードアウト</p>
+		<script>
+			$(function(){
+				$("#btn_fadeOut").on("click",function(){
+					$(this).fadeOut(2000)
+				});
+			});
+		</script>
+	</div>
+	<div>
+		<p id="btn_open01">アコーディオン</p>
+		<p id="cont01">コンテンツコンテンツコンテンツコンテンツコンテンツコンテンツ</p>
+		<script>
+			$("#cont01").hide();
+			$('#btn_open01').click(function(){
+				if ($('#cont01').css('display') == 'none') {
+					$('#cont01').slideDown();
+				} else {
+					$('#cont01').slideUp();
+				};
+			});
+		</script>
+	</div>
+	<div>
+		<p id="btn_open02">アコーディオン</p>
+		<p id="cont02">コンテンツコンテンツコンテンツコンテンツコンテンツコンテンツ</p>
+		<script>
+			$(function(){
+				$("#cont02").hide();
+				$("#btn_open02").on("click",function(){
+					$(this).next().slideToggle();
+				});
+			});
+		</script>
+	</div>
+	<div>
+		<p id="btn_over">ここにマウスオーバーすると</p>
+		<p id="red">ここの背景色が赤くなります</p>
+		<script>
+			$(function(){
+				$("#btn_over").hover(
+				function(){
+					$("#red").css("background","red").text("はなすと ('(ﾟ∀ﾟ∩ もどるよ！") //マウスオーバー時の処理
+				},
+				function(){
+					$("#red").css("background","none").text("ここの背景色が赤くなります") //マウスアウト時の処理
+				});
+			});
+		</script>
+	</div>
+</div>
+</body>
+</html>
